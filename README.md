@@ -62,23 +62,26 @@ curl "https://snapshots-testnet.nodejumper.io/lava-testnet/lava-testnet_latest.t
 
 # Create a service
 sudo tee /etc/systemd/system/lavad.service > /dev/null << EOF
-[Unit]
-Description=Lava node service
-After=network-online.target
-[Service]
-User=$USER
-ExecStart=$(which lavad) start
-Restart=on-failure
-RestartSec=10
-LimitNOFILE=65535
-[Install]
-WantedBy=multi-user.target
-EOF    
+[Unit]   
+Description=Lava node service   
+After=network-online.target   
+[Service]  
+User=$USER    
+ExecStart=$(which lavad) start   
+Restart=on-failure   
+RestartSec=10   
+LimitNOFILE=65535   
+[Install]    
+WantedBy=multi-user.target   
+EOF       
+
 sudo systemctl daemon-reload     
+
 sudo systemctl enable lavad.service     
 
 # Start the service and check the logs
 sudo systemctl start lavad.service    
+
 sudo journalctl -u lavad.service -f --no-hostname -o cat   
 
 Create Validator   
@@ -114,20 +117,21 @@ lavad q bank balances $(lavad keys show wallet -a)
 #    denom: ulava  
 
 # create validator
-lavad tx staking create-validator \
---amount=9000000ulava \
---pubkey=$(lavad tendermint show-validator) \
---moniker="$NODE_MONIKER" \
---chain-id=lava-testnet-2 \
---commission-rate=0.1 \
---commission-max-rate=0.2 \
---commission-max-change-rate=0.05 \
---min-self-delegation=1 \
---fees=10000ulava \
---from=wallet \
--y
-
+lavad tx staking create-validator \    
+--amount=9000000ulava \    
+--pubkey=$(lavad tendermint show-validator) \    
+--moniker="$NODE_MONIKER" \   
+--chain-id=lava-testnet-2 \   
+--commission-rate=0.1 \   
+--commission-max-rate=0.2 \   
+--commission-max-change-rate=0.05 \   
+--min-self-delegation=1 \   
+--fees=10000ulava \   
+--from=wallet \   
+-y   
+  
 # make sure you see the validator details
+
 lavad q staking validator $(lavad keys show wallet --bech val -a)
 
 

@@ -5,7 +5,7 @@ Recommended : 4CPU 8RAM 160GB
 
 
 # Install dependencies for building from source
-sudo apt update
+sudo apt update           
 sudo apt install -y curl git jq lz4 build-essential
 
 # Install Go

@@ -112,7 +112,7 @@ cat $HOME/.lava/config/priv_validator_key.json
 
 lavad status 2>&1 | jq .SyncInfo.catching_up  
 
-# faucet some tokens with the command below or ask in discord, if the command doesn't work    
+!!! faucet some tokens with the command below or ask in discord, if the command doesn't work    
 
 curl -X POST -d '{"address": "YOUR_WALLET_ADDRESS", "coins": ["10000000ulava"]}' https://faucet-api.lavanet.xyz/faucet/    
 

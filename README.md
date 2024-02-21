@@ -18,10 +18,10 @@ source .bash_profile
 Node Installation
 
 # Clone project repository
-cd && rm -rf lava
-git clone https://github.com/lavanet/lava
-cd lava
-git checkout v0.35.0
+cd && rm -rf lava      
+git clone https://github.com/lavanet/lava       
+cd lava   
+git checkout v0.35.0   
 
 # Build binary
 export LAVA_BINARY=lavad

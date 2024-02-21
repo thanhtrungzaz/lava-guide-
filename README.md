@@ -5,10 +5,13 @@ Recommended : 4CPU 8RAM 160GB
 
 
 # Install dependencies for building from source
+
 sudo apt update           
+
 sudo apt install -y curl git jq lz4 build-essential
 
 # Install Go
+
 sudo rm -rf /usr/local/go
 curl -L https://go.dev/dl/go1.21.6.linux-amd64.tar.gz | sudo tar -xzf - -C /usr/local
 echo 'export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin' >> $HOME/.bash_profile
@@ -92,6 +95,7 @@ Create Validator
 lavad keys add wallet   
 
 ## console output:
+
   name: wallet  
   type: local  
   address: lava@1us3tv59r3wz57ydjafkzgpy0pccae2a2e4k5en   
@@ -117,6 +121,7 @@ curl -X POST -d '{"address": "YOUR_WALLET_ADDRESS", "coins": ["10000000ulava"]}'
 lavad q bank balances $(lavad keys show wallet -a)    
  
 ## console output:
+
   balances:  
   - amount: "10000000"  
     denom: ulava  
